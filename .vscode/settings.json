@@ -1,0 +1,18 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "insideout-db.cpy4m8gmou9w.eu-west-1.rds.amazonaws.com",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "InsideOutDB",
+            "database": "InsideOutDB",
+            "username": "admin",
+            "password": "]*K}?Rsp1weF9t_<L9G>6>>F"
+        }
+    ]
+}
