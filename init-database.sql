@@ -1,6 +1,6 @@
 
 USE InsideOutDB;
 
-INSERT INTO Risks (risk_level) VALUES ('Low'), ('Medium'), ('High');
-INSERT INTO Rules (name) VALUES ('Admin'), ('Doctor');
+INSERT INTO Risks (risk_level) VALUES ('low'), ('medium'), ('high');
+INSERT INTO Roles (name) VALUES ('admin'), ('doctor');
 
