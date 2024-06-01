@@ -1,4 +1,5 @@
 ### VisualStudioCode ###
+.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -16,3 +17,5 @@
 # Ignore all local history of files
 .history
 .ionide
+
+InsideOutDB.session.sql
