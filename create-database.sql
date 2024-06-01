@@ -32,12 +32,10 @@ CREATE TABLE IF NOT EXISTS Medical_Data_Feature (
 -- Users Table
 CREATE TABLE IF NOT EXISTS Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
-    rule_id INT,
+    role_id INT,
     full_name VARCHAR(255) NOT NULL,
     username VARCHAR(255) NOT NULL UNIQUE,
-    hashed_password VARCHAR(255) NOT NULL,
-    salt VARCHAR(255) NOT NULL,
-    FOREIGN KEY (rule_id) REFERENCES Rules(rule_id)
+    FOREIGN KEY (role_id) REFERENCES Roles(role_id)
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 
