@@ -89,13 +89,3 @@ CREATE TABLE IF NOT EXISTS Reports (
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- FeatureImportance Table
-CREATE TABLE IF NOT EXISTS FeatureImportance (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    report_id INT,
-    feature_score_id INT,
-    FOREIGN KEY (report_id) REFERENCES Reports(report_id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (feature_score_id) REFERENCES FeatureScore(id)
-        ON DELETE CASCADE ON UPDATE CASCADE
-);
