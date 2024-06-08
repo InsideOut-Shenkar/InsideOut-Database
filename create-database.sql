@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS Medical_Data (
     patient_id INT,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     trained BOOLEAN NOT NULL DEFAULT FALSE,
-    FOREIGN KEY (patient_id) REFERENCES Patients(patient_id)
+    FOREIGN KEY (patient_id) REFERENCES Patients(id)
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 
