@@ -68,21 +68,18 @@ CREATE TABLE IF NOT EXISTS Medical_Data_Features (
 
 -- Reports Table
 CREATE TABLE IF NOT EXISTS Reports (
-    report_id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     patient_id INT,
     created_by INT,
-    prediction_feature_score_id INT,
     assessment INT,
     actual_risk INT,
     medical_data_id INT,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     modified_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
         on UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (patient_id) REFERENCES Patients(patient_id)
+    FOREIGN KEY (patient_id) REFERENCES Patients(id)
         ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (created_by) REFERENCES Users(user_id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (prediction_feature_score_id) REFERENCES FeatureScore(id)
+    FOREIGN KEY (created_by) REFERENCES Users(id)
         ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (assessment) REFERENCES Risks(id)
         ON DELETE CASCADE ON UPDATE CASCADE,
