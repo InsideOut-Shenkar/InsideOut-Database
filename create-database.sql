@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS Risks (
 CREATE TABLE IF NOT EXISTS Medical_Data_Feature (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    value VARCHAR(255) NOT NULL
+    value VARCHAR(255) NOT NULL,
 );
 
 -- Users Table
