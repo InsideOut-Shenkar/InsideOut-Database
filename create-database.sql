@@ -36,12 +36,12 @@ CREATE TABLE IF NOT EXISTS Users (
 
 -- Patients Table
 CREATE TABLE IF NOT EXISTS Patients (
-    patient_id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     created_by INT,
     id_number VARCHAR(255) NOT NULL UNIQUE,
     date_of_birth DATE NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, 
-    FOREIGN KEY (created_by) REFERENCES Users(user_id)
+    FOREIGN KEY (created_by) REFERENCES Users(id)
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 
