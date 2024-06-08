@@ -9,12 +9,6 @@ CREATE TABLE IF NOT EXISTS Roles (
     name VARCHAR(255) NOT NULL UNIQUE
 );
 
--- FeatureScore Table
-CREATE TABLE IF NOT EXISTS FeatureScore (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    score FLOAT NOT NULL
-);
 
 -- Risks Table
 CREATE TABLE IF NOT EXISTS Risks (
