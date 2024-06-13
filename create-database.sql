@@ -102,13 +102,13 @@ CREATE TABLE IF NOT EXISTS Model_Predictions (
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
--- ReportScores Table
-CREATE TABLE IF NOT EXISTS Report_Scores (
+-- Report Model Predictions Table
+CREATE TABLE IF NOT EXISTS Report_Model_Predictions  (
     id INT AUTO_INCREMENT PRIMARY KEY,
     report_id INT,
-    score_id INT,
+    prediction_id INT,
     FOREIGN KEY (report_id) REFERENCES Reports(id)
         ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (score_id) REFERENCES Score(id)
+    FOREIGN KEY (prediction_id) REFERENCES Model_Predictions(id)
         ON DELETE CASCADE ON UPDATE CASCADE
 );
