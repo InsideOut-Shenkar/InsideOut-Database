@@ -93,11 +93,12 @@ CREATE TABLE IF NOT EXISTS Reports (
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- Score Table
-CREATE TABLE IF NOT EXISTS Score (
+-- Model Predictions Table
+CREATE TABLE IF NOT EXISTS Model_Predictions (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    value FLOAT NOT NULL,
+    model_name VARCHAR(255) NOT NULL,
+    prediction TINYINT NOT NULL,
+    model_accuracy FLOAT NOT NULL
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
