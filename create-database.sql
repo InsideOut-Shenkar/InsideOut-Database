@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS Model_Predictions (
     id INT AUTO_INCREMENT PRIMARY KEY,
     model_name VARCHAR(255) NOT NULL,
     prediction TINYINT NOT NULL,
-    model_accuracy FLOAT NOT NULL
+    model_accuracy FLOAT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
