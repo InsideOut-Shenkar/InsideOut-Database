@@ -72,19 +72,22 @@ CREATE TABLE IF NOT EXISTS Reports (
     id INT AUTO_INCREMENT PRIMARY KEY,
     patient_id INT,
     created_by INT,
-    assessment INT,
     actual_risk INT,
     medical_data_id INT,
+    risk_level INT,
+    assessment_score FLOAT,
+    ds2_vote TINYINT CHECK (ds2_vote BETWEEN 0 AND 5),
+    ds4_vote TINYINT CHECK (ds4_vote BETWEEN 0 AND 5),
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     modified_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-        on UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (patient_id) REFERENCES Patients(id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
+        ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (created_by) REFERENCES Users(id)
         ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (assessment) REFERENCES Risks(id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (actual_risk) REFERENCES Risks(id)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (patient_id) REFERENCES Patients(id)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (risk_level) REFERENCES Risks(id)
         ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (medical_data_id) REFERENCES Medical_Data(id)
         ON DELETE CASCADE ON UPDATE CASCADE
