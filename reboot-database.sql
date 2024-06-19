@@ -1,20 +1,20 @@
--- This script generates DROP TABLE commands for all tables in the 'InsideOutDB' database.
-CREATE DATABASE IF NOT EXISTS InsideOutDB;
-USE InsideOutDB;
+-- Connect to the Database
+\c InsideOutDB;
 
-SET FOREIGN_KEY_CHECKS = 0;
-SET GROUP_CONCAT_MAX_LEN=32768;
-SET @tables = NULL;
+-- Disable Foreign Key Checks
+SET session_replication_role = 'replica';
 
-SELECT GROUP_CONCAT('`', table_name, '`') INTO @tables
-  FROM information_schema.tables
-  WHERE table_schema = (SELECT DATABASE());
-SELECT IFNULL(@tables,'dummy') INTO @tables;
+-- Create a function to drop all tables
+DO $$
+DECLARE
+    r RECORD;
+BEGIN
+    -- Loop through all table names in the current database
+    FOR r IN (SELECT tablename FROM pg_tables WHERE schemaname = 'public') LOOP
+        -- Drop each table
+        EXECUTE 'DROP TABLE IF EXISTS ' || quote_ident(r.tablename) || ' CASCADE';
+    END LOOP;
+END $$;
 
-SET @tables = CONCAT('DROP TABLE IF EXISTS ', @tables);
-
-PREPARE stmt FROM @tables;
-EXECUTE stmt;
-DEALLOCATE PREPARE stmt;
-
-SET FOREIGN_KEY_CHECKS = 1;
+-- Enable Foreign Key Checks
+SET session_replication_role = 'origin';
